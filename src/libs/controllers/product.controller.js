@@ -41,11 +41,8 @@ const updateProduct = async (req, res) => {
     const { id } = req.params;
     const data = req.body;
     try {
-        const product = await Product.update(data, {
-            where: {
-                id,
-            },
-        });
+        const product = await Product.findByPk(id);
+        await product.update(data);
         res.send(product);
     } catch (error) {
         console.log(error);
