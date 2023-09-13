@@ -6,10 +6,7 @@ import {
     createProduct,
     updateProduct,
 } from "../controllers/product.controller.js";
-const app = express();
 const router = express.Router();
-app.use(express.json());
-app.use('/products', router)
 
 router.get("/", getProducts);
 router.get("/:id", getProductById);
